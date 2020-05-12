@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import kr.tjeit.colosseum.utils.ContextUtil
 import kr.tjeit.colosseum.utils.ServerUtil
 import org.json.JSONObject
 
@@ -27,12 +28,20 @@ class MainActivity : BaseActivity() {
 
             ServerUtil.postRequestLogin(mContext, email, pw, object  : ServerUtil.JsonResponseHandler {
                 override fun onResponse(json: JSONObject) {
-//                    Log.d("로그인응답", json.toString())
+                    Log.d("로그인응답", json.toString())
 
                     val code = json.getInt("code")
 
                     if (code == 200) {
 
+                        val data = json.getJSONObject("data")
+                        val token = data.getString("token")
+
+                        ContextUtil.setUserToken(mContext, token)
+
+                        runOnUiThread {
+                            Toast.makeText(mContext, resources.getString(R.string.login_success_message), Toast.LENGTH_SHORT).show()
+                        }
 
 
                     }
