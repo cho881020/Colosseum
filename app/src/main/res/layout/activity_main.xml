@@ -33,6 +33,12 @@
         android:inputType="textPassword"
         android:hint="@string/hint_pw" />
 
+    <CheckBox
+        android:id="@+id/autoLoginCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/auto_login" />
+
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"

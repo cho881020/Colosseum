@@ -8,6 +8,7 @@ class ContextUtil {
         private val prefName = "colosseumPreference"
 
         private val USER_TOKEN = "USER_TOKEN"
+        private val IS_AUTO_LOGIN = "IS_AUTO_LOGIN"
 
         fun setUserToken(context: Context, token:String) {
             val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
@@ -18,6 +19,18 @@ class ContextUtil {
             val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
             return pref.getString(USER_TOKEN, "")!!
         }
+
+
+        fun setAutoLogin(context: Context, isAuto:Boolean) {
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            pref.edit().putBoolean(IS_AUTO_LOGIN, isAuto).apply()
+        }
+
+        fun isAutoLogin(context: Context) : Boolean {
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            return pref.getBoolean(IS_AUTO_LOGIN, false)
+        }
+
 
     }
 

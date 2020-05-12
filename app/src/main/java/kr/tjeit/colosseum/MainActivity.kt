@@ -21,6 +21,10 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        autoLoginCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+            ContextUtil.setAutoLogin(mContext, isChecked)
+        }
+
         loginBtn.setOnClickListener {
 
             val email = emailEdt.text.toString()
@@ -64,7 +68,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
-
+        autoLoginCheckBox.isChecked = ContextUtil.isAutoLogin(mContext)
     }
 
 }
