@@ -37,6 +37,7 @@
             android:layout_weight="1"/>
 
         <TextView
+            android:id="@+id/emailCheckResultTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13sp"
@@ -52,6 +53,7 @@
         android:layout_marginTop="8dp">
 
         <EditText
+            android:id="@+id/emailEdt"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:padding="10dp"
@@ -59,6 +61,7 @@
             android:background="@drawable/gray_border_box" />
 
         <Button
+            android:id="@+id/emailCheckBtn"
             android:layout_marginRight="7dp"
             android:layout_width="60dp"
             android:layout_height="32dp"
