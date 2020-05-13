@@ -20,6 +20,10 @@ class LoginActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        signUpBtn.setOnClickListener {
+
+        }
+
         autoLoginCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
             ContextUtil.setAutoLogin(mContext, isChecked)
         }
