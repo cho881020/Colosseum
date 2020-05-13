@@ -45,11 +45,30 @@
 
     </LinearLayout>
 
-    <EditText
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:hint="이메일 입력"
-        android:background="@drawable/gray_border_box" />
+        android:layout_marginTop="8dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:padding="10dp"
+            android:hint="이메일 입력"
+            android:background="@drawable/gray_border_box" />
+
+        <Button
+            android:layout_marginRight="7dp"
+            android:layout_width="60dp"
+            android:layout_height="32dp"
+            android:text="@string/check_duplicated_id"
+            android:textColor="@color/darkGray"
+            android:layout_gravity="right|center_vertical"
+            android:background="@drawable/gray_border_box_for_pressed"/>
+
+
+    </FrameLayout>
+
 
 </LinearLayout>

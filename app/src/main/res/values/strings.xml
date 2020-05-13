@@ -9,6 +9,7 @@
     <string name="sign_up">회원가입</string>
     <string name="login_success_message">로그인에 성공했습니다.</string>
     <string name="auto_login">자동 로그인</string>
+    <string name="check_duplicated_id">중복확인</string>
     <string name="id_check_message">중복확인을 해주세요.</string>
     <string name="id_check_success_message">사용 가능한 이메일 입니다.</string>
     <string name="id_check_fail_message">중복된 이메일 입니다.</string>
