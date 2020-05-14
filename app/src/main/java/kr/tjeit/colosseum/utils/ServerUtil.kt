@@ -87,12 +87,12 @@ class ServerUtil {
         }
 
 
-        fun getRequestMyInfo(context: Context, token:String, handler: JsonResponseHandler?) {
+        fun getRequestMainInfo(context: Context, handler: JsonResponseHandler?) {
 
             val client = OkHttpClient()
-            val urlBuilder = "${BASE_URL}/my_info".toHttpUrlOrNull()!!.newBuilder()
-            urlBuilder.addEncodedQueryParameter("device_token", "임시기기토큰")
-            urlBuilder.addEncodedQueryParameter("os", "Android")
+            val urlBuilder = "${BASE_URL}/main_info".toHttpUrlOrNull()!!.newBuilder()
+//            urlBuilder.addEncodedQueryParameter("device_token", "임시기기토큰")
+//            urlBuilder.addEncodedQueryParameter("os", "Android")
 
             val urlStr = urlBuilder.build().toString()
 
@@ -100,7 +100,7 @@ class ServerUtil {
 
             val request = Request.Builder()
                 .url(urlStr)
-                .header("X-Http-Token", token)
+                .header("X-Http-Token", ContextUtil.getUserToken(context))
                 .build()
 
             client.newCall(request).enqueue(object : Callback {
