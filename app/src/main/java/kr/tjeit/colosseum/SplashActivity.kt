@@ -30,7 +30,12 @@ class SplashActivity : BaseActivity() {
 //             => 하나라도 틀리면 로그인화면으로.
 
             if (ContextUtil.getUserToken(mContext) != "" && ContextUtil.isAutoLogin(mContext)) {
-                Toast.makeText(mContext, "메인화면으로 이동해야함", Toast.LENGTH_SHORT).show()
+
+                val myIntent = Intent(mContext, MainActivity::class.java)
+                startActivity(myIntent)
+
+                finish()
+
             }
             else {
                 val myIntent = Intent(mContext, LoginActivity::class.java)

@@ -51,7 +51,10 @@ class LoginActivity : BaseActivity() {
                         ContextUtil.setUserToken(mContext, token)
 
                         runOnUiThread {
-                            Toast.makeText(mContext, resources.getString(R.string.login_success_message), Toast.LENGTH_SHORT).show()
+                            val myIntent = Intent(mContext, MainActivity::class.java)
+                            startActivity(myIntent)
+
+                            finish()
                         }
 
 
