@@ -5,6 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/thisWeekBattleTopicTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이번주 토론 주제"
+        android:textSize="17sp"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="참가 준비중" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/myProfileImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:civ_border_color="@color/black"
+                app:civ_border_width="2dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/myNickNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="닉네임자리"
+                android:textColor="@color/black"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/changeProfileBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_profile_img" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
+
+
+
+
+
+
