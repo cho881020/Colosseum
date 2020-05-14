@@ -2,6 +2,7 @@ package kr.tjeit.colosseum
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -14,6 +15,9 @@ import java.io.File
 class MainActivity : BaseActivity() {
 
     val REQ_FOR_PICK_IMG = 1000;
+    val REQ_FOR_PICK_CROP = 1001;
+
+    var photoURI:Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +47,21 @@ class MainActivity : BaseActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
                     if (data.data != null) {
-                        Glide.with(mContext).load(data!!.data).into(testImg)
+                        val cropIntent = Intent("com.android.camera.action.CROP")
+                        cropIntent.setFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+                        cropIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        cropIntent.setDataAndType(data.data!!, "image/*")
+
+                        cropIntent.putExtra("scale",true)
+                        cropIntent.putExtra("output", photoURI)
+                        startActivityForResult(cropIntent, REQ_FOR_PICK_CROP)
                     }
                 }
+            }
+        }
+        else if (requestCode == REQ_FOR_PICK_CROP) {
+            if (resultCode == Activity.RESULT_OK) {
+                Glide.with(mContext).load(photoURI).into(testImg)
             }
         }
     }
