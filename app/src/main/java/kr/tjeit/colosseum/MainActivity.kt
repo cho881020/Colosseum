@@ -53,6 +53,8 @@ class MainActivity : BaseActivity() {
                     runOnUiThread {
                         myNickNameTxt.text = user.getString("nick_name")
                         thisWeekBattleTopicTxt.text = topic.getString("title")
+                        
+                        Glide.with(mContext).load(topic.getString("img_url")).into(topicImg)
                     }
 
                 }
