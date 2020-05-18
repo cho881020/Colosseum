@@ -1,6 +1,9 @@
 package kr.tjeit.colosseum.fcm
 
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -16,6 +19,16 @@ class MyFirebaseMessageService : FirebaseMessagingService() {
     override fun onMessageReceived(message: RemoteMessage?) {
         super.onMessageReceived(message)
         Log.d("푸시알림", "수신확인")
+
+    Log.d("푸시제목", message?.notification?.title)
+    Log.d("푸시바디", message?.notification?.body.toString())
+
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(applicationContext, message?.notification?.body.toString(), Toast.LENGTH_SHORT).show()
+        }
+
+
+
     }
 
 }
