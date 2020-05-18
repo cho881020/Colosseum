@@ -23,6 +23,10 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        userListBtn.setOnClickListener {
+            
+        }
+
         changeProfileBtn.setOnClickListener {
             val myIntent = Intent(Intent.ACTION_PICK)
             myIntent.setType("image/*")

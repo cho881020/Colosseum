@@ -14,4 +14,5 @@
     <string name="id_check_success_message">사용 가능한 이메일 입니다.</string>
     <string name="id_check_fail_message">중복된 이메일 입니다.</string>
     <string name="change_profile_img">프사 변경</string>
+    <string name="user_list">사용자 목록</string>
 </resources>
