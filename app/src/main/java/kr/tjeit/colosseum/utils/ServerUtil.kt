@@ -117,10 +117,10 @@ class ServerUtil {
             })
         }
 
-        fun getRequestUserCategory(context: Context, handler: JsonResponseHandler?) {
+        fun getRequestUserList(context: Context, handler: JsonResponseHandler?) {
 
             val client = OkHttpClient()
-            val urlBuilder = "${BASE_URL}/system/user_category".toHttpUrlOrNull()!!.newBuilder()
+            val urlBuilder = "${BASE_URL}/user".toHttpUrlOrNull()!!.newBuilder()
 //            urlBuilder.addEncodedQueryParameter("device_token", "임시기기토큰")
 //            urlBuilder.addEncodedQueryParameter("os", "Android")
 
@@ -130,7 +130,7 @@ class ServerUtil {
 
             val request = Request.Builder()
                 .url(urlStr)
-//                .header("X-Http-Token", token)
+                .header("X-Http-Token", ContextUtil.getUserToken(context))
                 .build()
 
             client.newCall(request).enqueue(object : Callback {

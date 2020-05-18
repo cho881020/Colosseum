@@ -24,7 +24,10 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
 
         userListBtn.setOnClickListener {
-            
+
+            val myIntent = Intent(mContext, UserListActivity::class.java)
+            startActivity(myIntent)
+
         }
 
         changeProfileBtn.setOnClickListener {
