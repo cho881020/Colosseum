@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "842041550746",
+    "firebase_url": "https://colosseum-ad57c.firebaseio.com",
+    "project_id": "colosseum-ad57c",
+    "storage_bucket": "colosseum-ad57c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842041550746:android:61433545621a9485edbc23",
+        "android_client_info": {
+          "package_name": "kr.tjeit.colosseum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842041550746-loo9keqqo2jh60eb73npeh7aregl0jab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.tjeit.colosseum",
+            "certificate_hash": "7587ea7db84d89383ef518b22620b7cd11434151"
+          }
+        },
+        {
+          "client_id": "842041550746-j0al4f5e9fu6j3pv23gs6l5bsjiqhrgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLcJHhYxG333Ra6h5h3UG4joJppcJXLHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842041550746-j0al4f5e9fu6j3pv23gs6l5bsjiqhrgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
