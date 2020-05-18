@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.widget.Toast
+import com.google.firebase.iid.FirebaseInstanceId
 import kr.tjeit.colosseum.utils.ContextUtil
 
 class SplashActivity : BaseActivity() {
@@ -21,6 +23,8 @@ class SplashActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        Log.d("FCM토큰확인", FirebaseInstanceId.getInstance().token)
 
         Handler().postDelayed({
 

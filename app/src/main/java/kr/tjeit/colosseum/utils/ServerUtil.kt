@@ -1,6 +1,8 @@
 package kr.tjeit.colosseum.utils
 
 import android.content.Context
+import android.util.Log
+import com.google.firebase.iid.FirebaseInstanceId
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import org.json.JSONObject
@@ -91,12 +93,12 @@ class ServerUtil {
 
             val client = OkHttpClient()
             val urlBuilder = "${BASE_URL}/main_info".toHttpUrlOrNull()!!.newBuilder()
-//            urlBuilder.addEncodedQueryParameter("device_token", "임시기기토큰")
-//            urlBuilder.addEncodedQueryParameter("os", "Android")
+            urlBuilder.addEncodedQueryParameter("device_token", FirebaseInstanceId.getInstance().token)
+            urlBuilder.addEncodedQueryParameter("os", "Android")
 
             val urlStr = urlBuilder.build().toString()
 
-//            Log.d("완성된주소", urlStr)
+            Log.d("완성된주소", urlStr)
 
             val request = Request.Builder()
                 .url(urlStr)
