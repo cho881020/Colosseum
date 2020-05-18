@@ -2,6 +2,7 @@ package kr.tjeit.colosseum
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_user_list.*
 import kr.tjeit.colosseum.adapters.UserAdapter
 import kr.tjeit.colosseum.datas.User
@@ -21,6 +22,22 @@ class UserListActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        userListView.setOnItemClickListener { parent, view, position, id ->
+            val clickedUser = userArrayList.get(position)
+
+            ServerUtil.postRequestUserFork(mContext, clickedUser.id, object : ServerUtil.JsonResponseHandler {
+                override fun onResponse(json: JSONObject) {
+
+                    runOnUiThread {
+                        Toast.makeText(mContext, "${clickedUser.nickName}님을 찔렀습니다.", Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+
+            })
+
+        }
 
     }
 

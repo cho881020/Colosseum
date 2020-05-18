@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import kr.tjeit.colosseum.R
 import kr.tjeit.colosseum.datas.User
 
@@ -20,6 +21,13 @@ class UserAdapter(val mContext: Context, val resId: Int, val mList:ArrayList<Use
         }
 
         val row = tempRow!!
+
+        val userInfoTxt = row.findViewById<TextView>(R.id.userInfoTxt)
+
+        val data = mList.get(position)
+
+        userInfoTxt.text = "${data.nickName}(${data.email})"
+
 
         return row
 

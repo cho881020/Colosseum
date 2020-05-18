@@ -60,6 +60,48 @@ class ServerUtil {
 
         }
 
+
+        fun postRequestUserFork(
+            context: Context,
+            userId: Int,
+            handler: JsonResponseHandler?
+        ) {
+
+            val client = OkHttpClient()
+            val urlStr = "${BASE_URL}/user_check"
+
+            val formBody = FormBody.Builder()
+                .add("user_id", "${userId}")
+                .build()
+
+            val request = Request.Builder()
+                .url(urlStr)
+                .post(formBody)
+                .header("X-Http-Token", ContextUtil.getUserToken(context))
+                .build()
+
+            client.newCall(request).enqueue(object : Callback {
+
+                override fun onFailure(call: Call, e: IOException) {
+                    e.printStackTrace()
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+                    val body = response.body!!.string()
+                    val json = JSONObject(body)
+
+                    handler?.onResponse(json)
+
+
+                }
+
+            })
+
+
+        }
+
+
         fun getRequestEmailDuplCheck(context: Context, email:String, handler: JsonResponseHandler?) {
 
             val client = OkHttpClient()
